@@ -6,36 +6,36 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.PasswordField;
 
 public final class EventManager {
-	private DataDisplayPane dataDisplayPane;
 
-	public EventManager(DataDisplayPane dataDisplayPane) {
-		this.dataDisplayPane = dataDisplayPane;
+	public EventManager() {
+
 	}
 
-	public void setUpPlotButtonEvent(Button plotButton, InputField xInput, InputField yInput) {
+	public void setUpSignInButtonEvent(Button signInButton, InputField userInput, PasswordField passInput) {
 		// This uses an event handler instantiated from a nested class.
-		plotButton.setOnAction(new PlotButtonEventHandler(xInput, yInput));
+		signInButton.setOnAction(new signInButtonEventHandler(userInput, passInput));
 	}
 
-	public void setUpClearButtonEvent(Button cancelButton) {
+	public void setUpSignUpButtonEvent(Button cancelButton) {
 		// This uses an event handler instantiated from an anonymous class. 
 		cancelButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				dataDisplayPane.clearData(); 
+				FirstUI.main(null);
 			}
 		});
 	}
 
-	private final class PlotButtonEventHandler implements EventHandler<ActionEvent> {
-		private InputField xInput;
-		private InputField yInput;
+	private final class signInButtonEventHandler implements EventHandler<ActionEvent> {
+		private InputField userInput;
+		private PasswordField passInput;
 
-		public PlotButtonEventHandler(InputField xInput, InputField yInput) {
-			this.xInput = xInput;
-			this.yInput = yInput;
+		public signInButtonEventHandler(InputField xInput, PasswordField passInput) {
+			this.userInput = userInput;
+			this.passInput = passInput;
 		}
 
 		@Override
