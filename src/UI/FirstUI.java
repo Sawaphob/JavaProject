@@ -22,8 +22,7 @@ public class FirstUI extends Application {
 		VBox root = new VBox(10);
 		root.setAlignment(Pos.BASELINE_CENTER);
 		root.setPadding(new Insets(20));
-		Scene scene = new Scene(root,Color.BEIGE);
-		Image image = new Image("File:/Users/SawaphobChavana/eclipse-workspace/JavaProject/Font-Starbucks-Logo.png");
+		Image image = new Image("https://raw.githubusercontent.com/Sawaphob/JavaProject/master/Font-Starbucks-Logo.png");
 		ImageView pic = new ImageView();
 		pic.setFitWidth(408);
 		pic.setFitHeight(100);
@@ -50,7 +49,10 @@ public class FirstUI extends Application {
 		HBox hbutton = new HBox(5);
 		hbutton.setAlignment(Pos.CENTER);
 		hbutton.getChildren().addAll(login,signup);
-		root.getChildren().add(hbutton);
+		VirtualKeyboard vk = new VirtualKeyboard();
+		vk.root.setAlignment(Pos.BOTTOM_CENTER);
+		root.getChildren().addAll(hbutton,vk.root);
+		Scene scene = new Scene(root,Color.BEIGE);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Starbuck Cooperation"); 
 		primaryStage.show();
