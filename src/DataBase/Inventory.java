@@ -8,7 +8,7 @@ public class Inventory{
 	
 	private List<Item> items;
 	public static String FoodNames[] = {"Espresso","America","Latte","Cappuccino","Mocha","Caramel","WhiteChoc","IceAmericano","BrewedTea","TeaLatte",
-			"GreenTeaLatte","IceShakenTea",};
+			"GreenTeaLatte","IceShakenTea","BreakFastTea","PomegranatePearl","LemonTea","IceGreenTea"};
 	public static double FoodStock[] = {5.0,4.6,5.0,4.5,4.1,4.3,4.8,4.0,4.0,4.3};
 	public static double FoodPrices[] = {40.00,30.00,30.00,50.00,40.00,50.00,50.00,50.00,30.00,30.00};
 	public static int initialSize = 24;
