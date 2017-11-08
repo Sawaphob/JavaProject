@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import DataBase.Food;
+
 public class Inventory{
 	
-	private List<Item> items;
+	private static List<Item> items;
 	public static String FoodNames[] = {"Espresso","America","Latte","Cappuccino","Mocha","Caramel","WhiteChoc","IceAmericano","BrewedTea","TeaLatte",
-			"GreenTeaLatte","IceShakenTea","BreakFastTea","PomegranatePearl","LemonTea","IceGreenTea"};
-	public static double FoodStock[] = {5.0,4.6,5.0,4.5,4.1,4.3,4.8,4.0,4.0,4.3};
-	public static double FoodPrices[] = {40.00,30.00,30.00,50.00,40.00,50.00,50.00,50.00,30.00,30.00};
+			"GreenTeaLatte","IceShakenTea","BreakFastTea","PomegranatePearl","LemonTea","IceGreenTea","IceLatte","IceMoccha","IceCharamel","IceWhiteChock","BrewCoffee","CoffeePress","IceCoffee","Fusion"};
+	public static double FoodPrices[] = {80,100,110,110,125,135,135,100,90,125,13090,100,130,115,130,110,125,135,135,100,105,100145};
+	public static double FoodStock[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	public static int initialSize = 24;
 	
 	public Inventory(){
@@ -32,33 +34,13 @@ public class Inventory{
 		}
 		
 	
-	public void listFood()
+	public static void ListFood()
 	{
-		for(Item e:items) {
-			if(e instanceof Food) {
-				System.out.println(e);
-			}
+		for(int i=0;i<24;i++) {
+				System.out.println(FoodNames[i]);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
-
-	public int getTotalFood(){
-		int count=0;
-		for(Item e:items) {
-			if(e instanceof Food) {
-				count++;
-			}
-	}
-		return count;
-	}
 
 	public List<Item> getItems() {
 		return items;
