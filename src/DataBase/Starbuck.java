@@ -1,4 +1,4 @@
-package mainData;
+package DataBase;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,6 +7,7 @@ import javax.xml.ws.spi.Invoker;
 
 
 public class Starbuck {
+	private static final String Select = null;
 	public static Scanner in;
 	public static int price=0;
 	
@@ -19,20 +20,50 @@ public class Starbuck {
 			command = in.nextLine();
 			
 			switch (command) {
-				case "E":
+			case "L":
+				ListMenu();
+				break;
+			case "S":
+				SelectFood();
+				break;
+			case "D":
+				Discount();
+				break;
+			case "B":
+				BuyFood();
+				break;
+			case "E":
 				System.out.println("Finish work to day great job.");
 				System.exit(0);
 				break;
 			}
 	}
 	}
+	private static void BuyFood() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void Discount() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void SelectFood() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void ListMenu() {
+		// TODO Auto-generated method stub
+		
+	}
 	private static void showMenu(){
 		System.out.println("########################################");
 		System.out.println("StackBuck Store Menu");
 		System.out.println("########################################");
-		System.out.println("B)\tBuy food and beverage");
+		System.out.println("L)\tList of food");
+		System.out.println("S)\tSelect food and beverage");
 		System.out.println("D)\tDiscount");
 		System.out.println("E)\tLog Out");
+		System.out.println("B)\tBuy Food and Beverage");
 		System.out.println("----------------------------------------");
 		System.out.print("กดดิ: ");
 	}

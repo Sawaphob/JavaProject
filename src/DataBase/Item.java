@@ -1,8 +1,9 @@
-package model;
+package DataBase;
 
-public abstract class Item implements Comparable<Item>{
+public abstract class Item{
 	 protected int id;//beverage and food id
 	 protected String name;//menu name
+	 protected int rating;
 	 protected boolean isInStock;//food left
 	 protected double price;//beverage and food price
 	 public Item(String name, double rating, double price){
