@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import javax.imageio.stream.FileImageInputStream;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -43,14 +45,15 @@ public final class EventManager {
 			this.userInput = userInput;
 			this.passInput = passInput;
 		}
-		
+		 
 
 		@Override
 		public void handle(ActionEvent argo) {
 			username = userInput.getInputData();
 			password = passInput.getText();
 			boolean grantAccess = false;
-			File f = new File("/Users/SawaphobChavana/eclipse-workspace/JavaProject/users.txt");
+			
+			File f = new File("resources/txt/users.txt");
 			try {
 			     read = new Scanner(f); 
 			     while(read.hasNextLine()){
@@ -59,17 +62,6 @@ public final class EventManager {
 				             break; // and break the for-loop
 				          }
 				       }
-
-//			    //loop through every line in the file and check against the user name & password (as I noticed you saved inputs in pairs of lines)
-//			    for(int i=0; i<noOfLines; i++){
-//			       if(read.nextLine().equals(username)){ // if the same user name
-//			          i++;
-//			          if(read.nextLine().equals(password)){ // check password
-//			             grantAccess=true; // if also same, change boolean to true
-//			             break; // and break the for-loop
-//			          }
-//			       }
-//			    }
 			     if(grantAccess){
 			        // let the user continue 
 		    	 		Alert alert1 = new Alert(AlertType.CONFIRMATION, "Granted Access", ButtonType.OK);
