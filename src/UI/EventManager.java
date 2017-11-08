@@ -1,5 +1,9 @@
 package UI;
  
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -32,25 +36,56 @@ public final class EventManager {
 	private final class signInButtonEventHandler implements EventHandler<ActionEvent> {
 		private InputField userInput;
 		private PasswordField passInput;
-
-		public signInButtonEventHandler(InputField xInput, PasswordField passInput) {
+		private String username;
+		private String password;
+		private Scanner read;
+		public signInButtonEventHandler(InputField userInput, PasswordField passInput) {
 			this.userInput = userInput;
 			this.passInput = passInput;
 		}
+		
 
 		@Override
 		public void handle(ActionEvent argo) {
+			username = userInput.getInputData();
+			password = passInput.getText();
+			boolean grantAccess = false;
+			File f = new File("/Users/SawaphobChavana/eclipse-workspace/JavaProject/users.txt");
 			try {
-				double x = Double.parseDouble(xInput.getInputData());
-				double y = Double.parseDouble(yInput.getInputData());
-				dataDisplayPane.addData(x,y);
-				xInput.clearInputData();
-				yInput.clearInputData();
-				// TODO Implement this block
-			} catch (NumberFormatException e) { 
-				Alert alert = new Alert(AlertType.ERROR, "INPUT IS NOT A NUMBER", ButtonType.OK);
-				alert.show(); 
-				e.printStackTrace();
+			     read = new Scanner(f); 
+			     while(read.hasNextLine()){
+			    	 if(read.nextLine().equals(username+" "+password)){ // if the same user name // check password
+				             grantAccess=true; // if also same, change boolean to true
+				             break; // and break the for-loop
+				          }
+				       }
+
+//			    //loop through every line in the file and check against the user name & password (as I noticed you saved inputs in pairs of lines)
+//			    for(int i=0; i<noOfLines; i++){
+//			       if(read.nextLine().equals(username)){ // if the same user name
+//			          i++;
+//			          if(read.nextLine().equals(password)){ // check password
+//			             grantAccess=true; // if also same, change boolean to true
+//			             break; // and break the for-loop
+//			          }
+//			       }
+//			    }
+			     if(grantAccess){
+			        // let the user continue 
+		    	 		Alert alert1 = new Alert(AlertType.CONFIRMATION, "Granted Access", ButtonType.OK);
+		    	 		alert1.show();
+
+			        // and do other stuff, for example: move to next window ..etc
+			     }
+			     else{
+			    	 		Alert alert = new Alert(AlertType.ERROR, "Please verify that you've entered everything correctly.", ButtonType.OK);
+						alert.show(); 
+			         // return Alert message to notify the deny
+			     }
+
+			} catch (FileNotFoundException e) {
+
+			        e.printStackTrace();
 			}
 		}
 	}

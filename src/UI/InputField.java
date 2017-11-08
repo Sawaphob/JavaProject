@@ -23,7 +23,7 @@ public final class InputField extends HBox {
  
 	public String getInputData() {
 		// TODO Implement this method
-		return inputTextField.getText().trim();
+		return inputTextField.getText();
 	}
 
 	public void clearInputData() {
