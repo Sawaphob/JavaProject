@@ -5,15 +5,16 @@ import java.util.Iterator;
 import java.util.Scanner;
 import javax.xml.ws.spi.Invoker;
 
-
+import DataBase.Inventory;
 public class Starbuck {
-	private static final String Select = null;
 	public static Scanner in;
+	public static Scanner num;
 	public static int price=0;
 	
 	public static void main(String[] args) {
 		String command;
 		in = new Scanner(System.in);
+		num = new Scanner(System.in);
 		
 		while (true) {
 			showMenu();
@@ -24,7 +25,8 @@ public class Starbuck {
 				ListMenu();
 				break;
 			case "S":
-				SelectFood();
+				int i=PickFoodNum();
+				SelectFood(i);
 				break;
 			case "D":
 				Discount();
@@ -38,6 +40,10 @@ public class Starbuck {
 			}
 	}
 	}
+	private static int PickFoodNum() {
+		int i = num.nextInt();
+		return i;
+	}
 	private static void Calculate() {
 		System.out.println(price);
 		
@@ -50,14 +56,18 @@ public class Starbuck {
 		// TODO Auto-generated method stub
 		
 	}
-	private static void SelectFood() {
-		// TODO Auto-generated method stub
+	private static int SelectFood(int i) {
+		price+=Inventory.FoodPrices[i];
+		System.out.println(Inventory.FoodNames[i]);
+		System.out.println(price);
+		return i;
+		
 		
 	}
 	private static void ListMenu() {
-		// TODO Auto-generated method stub
-		
+		Inventory.ListFood();
 	}
+	
 	private static void showMenu(){
 		System.out.println("########################################");
 		System.out.println("StackBuck Store Menu");
