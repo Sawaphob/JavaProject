@@ -32,15 +32,18 @@ public class Starbuck {
 			case "B":
 				BuyFood();
 				break;
-			case "E":
-				System.out.println("Finish work to day great job.");
-				System.exit(0);
+			case "C":
+				Calculate();
 				break;
 			}
 	}
 	}
-	private static void BuyFood() {
-		// TODO Auto-generated method stub
+	private static void Calculate() {
+		System.out.println(price);
+		
+	}
+	private static void BuyFood() { 
+		//price+=ราคาปัจจุบัน
 		
 	}
 	private static void Discount() {
