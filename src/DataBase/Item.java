@@ -1,21 +1,13 @@
 package DataBase;
 
 public abstract class Item{
-	 protected int id;//beverage and food id
 	 protected String name;//menu name
-	 protected int rating;
-	 protected boolean isInStock;//food left
+	 protected double stock;//beverage and food left
 	 protected double price;//beverage and food price
-	 public Item(String name, double rating, double price){
+	 public Item(String name, double stock, double price){
 		 this.name=name;
 		 this.price=price;
-		 isInStock=true;
-	 }
-	 public int getId() {
-		 return id;
-	 }
-	 public void setId(int id) {
-		 this.id=id;
+		 this.stock=stock;
 	 }
 	 public String getName() {
 		 return name;
@@ -23,13 +15,16 @@ public abstract class Item{
 	 public void setName(String name) {
 		 this.name=name;
 	 }
-	 public boolean isInStock() {
-		 return isInStock;
-	 }
-	 public void setInStock(boolean isInStock) {
-		 this.isInStock=isInStock;
-	 }
-	 public double getPrice() {
+	public double getStock() {
+		return stock;
+	}
+	public void setStock(double stock) {
+		this.stock = stock;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public double getPrice() {
 		 return price;
 	 }
 	 public void set(double price) {
