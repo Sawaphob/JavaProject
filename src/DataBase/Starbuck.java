@@ -29,7 +29,7 @@ public class Starbuck {
 				
 			case "SB":
 				/*
-				 * รหัสสินค้าาำหรับปุ่มกด น้ำ=0-23 อาหาร=0-สุดท้าย(ยังไม่ได้ทำ)
+				 * รหัสสินค้าสำหรับปุ่มกด น้ำ=0-23 อาหาร=0-สุดท้าย(ยังไม่ได้ทำ)
 				 * ระบบยังทำได้เเค่เลือกน้ำ เเละ รวมราคา ยังไม่สามารถตั้งค่า cup size
 				 */
 				//กดปุ่มเเล้วส่งข้อมูลเลขน้ำมา 1-23
@@ -53,11 +53,12 @@ public class Starbuck {
 				break;
 				
 			case "C":
+				//อาจจะไม่ต้องใช้
 				//ส่งค่าราคาให้พอกด next เพื่อไปหน้าถัดไป
 				Calculate();// print price(ไม่ต้องใช้) & return price
 				break;//เสร็จ
 			
-			case "AS":
+			case "US":
 				//น่าจาเสร็จ เดี๋ยวทำตัว check stockให้ตัวที่หมดกดไม่ได้ พอstock=0จะทำให้ไม่ได้ทันที ไรงี้
 				UpdateStock();
 				break;
@@ -127,15 +128,15 @@ public class Starbuck {
 	
 	private static String SelectBeverage(int i) {
 		price+=Inventory.BeveragePrices[i];
-		Inventory.BeverageStock[i]-=1;
+		Inventory.BeverageStock[i]-=1;//ลดไปชิ้นนึง
 		System.out.println(Inventory.BeverageNames[i]);
 		System.out.println(price);//ดึงค่านี้มาคิดราคารวม
-		return Inventory.BeverageNames[i];
+		return Inventory.BeverageNames[i];//ส่งชื่อไปไว้ในตะกร้า
 	}
 	
 	private static int SelectFood(int i) {
 		price+=Inventory.FoodPrices[i];
-		Inventory.BeverageStock[i]-=1;
+		Inventory.FoodStock[i]-=1;
 		System.out.println(Inventory.FoodNames[i]);
 		System.out.println(price);//ดึงค่านี้มาคิดราคารวม
 		return i;

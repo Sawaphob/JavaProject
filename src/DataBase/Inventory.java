@@ -19,7 +19,7 @@ public class Inventory{
 	public static String FoodNames[] = {"Classic Tuna","Croque Monsiuer","Crispy Bacon Egg & Gouda Croissant Bun","Duo Delight","Egg Salad",
 			"Permesan Bagel Ball Stuff with Herbs Cream Chees","Marshmallow Cookie","Soft Chocolate Chip Cookies","Chocolate Scone","Skinny Banana Muffin",
 			"Skinny Blueberry Muffin","Banana ChocChip Muffin","Chicken & Mushroom Pie","Jumbo Sausage Bite","Mushroom Bruschetta","Tomato Bruschetta",
-			"Croque Monsieur","Crispy Bacon,Egg & Gouda Croissant Bun","Espresso Chocchip Brownie","Starbucks Signature Chocolate Cake","Coconut Cake",
+			"Croque Monsieur","Crispy Bacon,Egg & Gou da Croissant Bun","Espresso Chocchip Brownie","Starbucks Signature Chocolate Cake","Coconut Cake",
 			"Banoffee Pie"};
 	public static double FoodPrices[] = {85,100,135,70,95,45,65,65,65,65,65,65,75,75,65,65,100,135,85,125,125,125};
 	public static double FoodStock[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
