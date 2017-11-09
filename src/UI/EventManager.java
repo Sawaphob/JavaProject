@@ -30,7 +30,6 @@ public final class EventManager {
 		cancelButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				FirstUI.main(null);
 			}
 		});
 	}
