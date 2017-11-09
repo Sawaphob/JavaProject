@@ -22,7 +22,7 @@ public class Starbuck {
 			command = in.nextLine();
 			
 			switch (command) {
-			case "L":
+			case "LF":
 				//บอกรายชื่อทั้งหมดของน้ำ+อาหาร เเต่ไม่ได้เอาออกไปใช้
 				ListMenu();
 				break;
@@ -32,13 +32,19 @@ public class Starbuck {
 				 * รหัสสินค้าาำหรับปุ่มกด น้ำ=0-23 อาหาร=0-สุดท้าย(ยังไม่ได้ทำ)
 				 * ระบบยังทำได้เเค่เลือกน้ำ เเละ รวมราคา ยังไม่สามารถตั้งค่า cup size
 				 */
+				//กดปุ่มเเล้วส่งข้อมูลเลขน้ำมา 1-23
 				i=PickNum();
+				//เลือก beverage อันนี้จะส่งชื่อน้ำไปให้โชว์ข้างๆ เพิ่มราคารวม
 				SelectBeverage(i);
+				//เช็คว่า stock หมดยัง เเล้วจะส่งคำสั่งให้ปุ่มเเสดงว่าปิดด้วย isInStock:true false
+				CheckBeverageStock(i);
 				break;
 				
 			case "SF":
+				//กดปุ่มเเล้วส่งข้อมูลเลขอาหารมา 1-21
 				i=PickNum();
 				SelectFood(i);
+				CheckFoodStock(i);
 				break;
 				
 			case "D":
@@ -53,13 +59,34 @@ public class Starbuck {
 			
 			case "AS":
 				//น่าจาเสร็จ เดี๋ยวทำตัว check stockให้ตัวที่หมดกดไม่ได้ พอstock=0จะทำให้ไม่ได้ทันที ไรงี้
-				AddStock();
+				UpdateStock();
+				break;
+				
+			case "LS":
+				ListStock();
 				break;
 			}
 	}
 	}
 	
-	private static void AddStock() {
+	private static boolean CheckFoodStock(int num) {
+		// TODO Auto-generated method stub
+		return Inventory.FoodStock[num]==0.00;
+		
+	}
+
+	private static boolean CheckBeverageStock(int num) {
+		// TODO Auto-generated method stub
+		return Inventory.BeverageStock[num]==0.00;
+		
+	}
+
+	private static void ListStock() {
+		Inventory.ListStock();
+		
+	}
+
+	private static void UpdateStock() {
 		//ปุ่มเพิ่ม stock
 		System.out.println("select stock : 0=Beverage 1=Food");
 		int i = num.nextInt();
@@ -98,12 +125,12 @@ public class Starbuck {
 		
 	}
 	
-	private static int SelectBeverage(int i) {
+	private static String SelectBeverage(int i) {
 		price+=Inventory.BeveragePrices[i];
 		Inventory.BeverageStock[i]-=1;
 		System.out.println(Inventory.BeverageNames[i]);
 		System.out.println(price);//ดึงค่านี้มาคิดราคารวม
-		return i;
+		return Inventory.BeverageNames[i];
 	}
 	
 	private static int SelectFood(int i) {
@@ -117,11 +144,14 @@ public class Starbuck {
 		Inventory.ListFood();
 	}
 	
+	
 	private static void showMenu(){
 		System.out.println("########################################");
 		System.out.println("StackBuck Store Menu");
 		System.out.println("########################################");
-		System.out.println("L)\tList of food");
+		System.out.println("LF)\tList of food");
+		System.out.println("LS)\tList of Stock");
+		System.out.println("US)\tUpdate Stock");
 		System.out.println("SB)\tSelect beverage");
 		System.out.println("SF)\tSelect food");
 		System.out.println("D)\tDiscount");

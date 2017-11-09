@@ -46,6 +46,15 @@ public class Inventory{
 		items.add(item);
 		}
 		
+	public static void ListStock()
+	{
+		for(int i=0;i<24;i++) {
+				System.out.println(BeverageStock[i]);
+		}
+		for(int i=0;i<22;i++) {
+			System.out.println(FoodStock[i]);
+	}
+	}
 	
 	public static void ListFood()
 	{
