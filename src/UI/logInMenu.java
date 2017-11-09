@@ -9,9 +9,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 public class logInMenu {
@@ -20,7 +25,8 @@ public class logInMenu {
 		root = new VBox(15);
 		root.setAlignment(Pos.BASELINE_CENTER);
 		root.setPadding(new Insets(20));
-		root.setBackground(new Background( new BackgroundFill(Color.GREY,null,null)));
+		Image imageb = new Image("file:resources/photo/logInPage/3.jpg");
+		root.setBackground(new Background(new BackgroundImage(imageb,null,null,null,new BackgroundSize(1000, 800, false, false,false,true))));
 		Image image = new Image("file:resources/photo/logInPage/1.png");
 		ImageView pic = new ImageView();
 		pic.setFitWidth(408);
@@ -28,6 +34,8 @@ public class logInMenu {
 		pic.setImage(image); 
 		root.getChildren().add(pic);
 		Text text = new Text("Welcome to Starbuck's Store.");
+		text.setFill(Color.WHITESMOKE);
+		text.setFont(Font.font("Verdana",FontPosture.ITALIC, 20));
 		root.getChildren().add(text);
 		HBox hpass = new HBox(5);
 		hpass.setAlignment(Pos.CENTER);
