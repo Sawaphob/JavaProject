@@ -21,7 +21,7 @@ public class logInMenu {
 		root.setAlignment(Pos.BASELINE_CENTER);
 		root.setPadding(new Insets(20));
 		root.setBackground(new Background( new BackgroundFill(Color.GREY,null,null)));
-		Image image = new Image("https://raw.githubusercontent.com/Sawaphob/JavaProject/master/Font-Starbucks-Logo.png");
+		Image image = new Image("file:resources/photo/logInPage/1.png");
 		ImageView pic = new ImageView();
 		pic.setFitWidth(408);
 		pic.setFitHeight(100);
@@ -42,7 +42,7 @@ public class logInMenu {
 		hpass.getChildren().addAll(passl,pass,space);
 		root.getChildren().add(hpass);
 		ControlPane control = new ControlPane();
-		Image image1 = new Image("https://raw.githubusercontent.com/Sawaphob/JavaProject/master/Banner1.jpg");
+		Image image1 = new Image("file:resources/photo/logInPage/2.jpg");
 		ImageView pic1 = new ImageView();
 		pic1.setFitHeight(150);
 		pic1.setFitWidth(642);
