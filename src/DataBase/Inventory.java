@@ -38,8 +38,6 @@ public class Inventory{
 		{
 			this.addItem(new Food(FoodNames[i],FoodStock[i],FoodPrices[i]));
 		}
-		
-		
 	}
 	
 	public void addItem(Item item){

@@ -41,7 +41,7 @@ public class Starbuck {
 				break;
 				
 			case "SF":
-				//กดปุ่มเเล้วส่งข้อมูลเลขอาหารมา 1-21
+				//กดปุ่มเเล้วส่งข้อมูลเลขอาหารมา 1-21 ที่เหลือคล้าย
 				i=PickNum();
 				SelectFood(i);
 				CheckFoodStock(i);
@@ -155,7 +155,7 @@ public class Starbuck {
 		System.out.println("SB)\tSelect beverage");
 		System.out.println("SF)\tSelect food");
 		System.out.println("D)\tDiscount");
-		System.out.println("E)\tLog Out");
+		System.out.println("C)\tCalculate");
 		System.out.println("----------------------------------------");
 		System.out.print("กดดิ: ");
 	}
