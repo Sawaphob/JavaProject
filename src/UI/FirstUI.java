@@ -39,22 +39,18 @@ public class FirstUI extends Application {
     		text.setFont(f);
         VBox pane = new VBox();
 
-            imgView[0] = new ImageView(new Image("file:resources/photo/FirstPage/1.jpg"));
-            imgView[1] = new ImageView(new Image("file:resources/photo/FirstPage/2.jpg"));
+            imgView[1] = new ImageView(new Image("file:resources/photo/FirstPage/1.jpg"));
+            imgView[0] = new ImageView(new Image("file:resources/photo/FirstPage/2.jpg"));
             imgView[2] = new ImageView(new Image("file:resources/photo/FirstPage/3.jpg"));
             imgView[3] = new ImageView(new Image("file:resources/photo/FirstPage/4.jpg"));
             for(int i = 0 ; i<4;i++) {
             imgView[i].setFitWidth(1050);
             imgView[i].setFitHeight(700);
-            imgView[i].setCursor(Cursor.CLOSED_HAND);
-            imgView[i].setOnMousePressed(circleOnMousePressedEventHandler);
             }
-            
-            pane.getChildren().add(imgView[0]);
+            pane.getChildren().add(imgView[imgIndex]);
             imgView[0].setCursor(Cursor.CLOSED_HAND);
-            imgView[0].setOnMousePressed(circleOnMousePressedEventHandler);
+	        imgView[0].setOnMouseClicked(circleOnMousePressedEventHandler);
             pane.setAlignment(Pos.CENTER);
-            VBox.setVgrow(imgView[0], Priority.ALWAYS);
 
 
         EventHandler<ActionEvent> eventHandler = e -> {
@@ -64,9 +60,8 @@ public class FirstUI extends Application {
                 imgIndex++;
                 pane.getChildren().add(imgView[imgIndex]);
                 imgView[imgIndex].setCursor(Cursor.CLOSED_HAND);
-                imgView[imgIndex].setOnMousePressed(circleOnMousePressedEventHandler);
-                VBox.setVgrow(imgView[imgIndex], Priority.ALWAYS);
-                FadeTransition ft = new FadeTransition(Duration.millis(10000), imgView[imgIndex]);
+                imgView[imgIndex].setOnMouseClicked(circleOnMousePressedEventHandler);
+                FadeTransition ft = new FadeTransition(Duration.millis(2000), imgView[imgIndex]);
                 ft.setFromValue(0.5);
                 ft.setToValue(1);
                 ft.play();
@@ -76,16 +71,15 @@ public class FirstUI extends Application {
                 pane.getChildren().remove(imgView[3]);
                 pane.getChildren().add(imgView[imgIndex]);
                 imgView[imgIndex].setCursor(Cursor.CLOSED_HAND);
-                imgView[imgIndex].setOnMousePressed(circleOnMousePressedEventHandler);
-                VBox.setVgrow(imgView[imgIndex], Priority.ALWAYS);
-                FadeTransition ft = new FadeTransition(Duration.millis(10000), imgView[imgIndex]);
+                imgView[imgIndex].setOnMouseClicked(circleOnMousePressedEventHandler);
+                FadeTransition ft = new FadeTransition(Duration.millis(2000), imgView[imgIndex]);
                 ft.setFromValue(0.5);
                 ft.setToValue(1);
             }
         };
 
         // Timeline Animation
-        Timeline animation = new Timeline(new KeyFrame(Duration.millis(10000), eventHandler));
+        Timeline animation = new Timeline(new KeyFrame(Duration.millis(3000), eventHandler));
         animation.setCycleCount(Timeline.INDEFINITE);
         animation.play();
         spane.getChildren().addAll(pane,text);
@@ -94,7 +88,6 @@ public class FirstUI extends Application {
 		primaryStage.setTitle("Starbucks Cooperation"); 
 		primaryStage.show(); 
         circleOnMousePressedEventHandler = new EventHandler<MouseEvent>() {
-            @Override
             public void handle(MouseEvent t) {
                 logInMenu login = new logInMenu();
                 primaryStage.getScene().setRoot(login.getRootPane());
