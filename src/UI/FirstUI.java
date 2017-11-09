@@ -12,9 +12,11 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -85,6 +87,7 @@ public class FirstUI extends Application {
         spane.getChildren().addAll(pane,text);
         Scene scene = new Scene(spane);
         primaryStage.setScene(scene); 
+        primaryStage.setFullScreen(true);
 		primaryStage.setTitle("Starbucks Cooperation"); 
 		primaryStage.show(); 
         circleOnMousePressedEventHandler = new EventHandler<MouseEvent>() {
@@ -93,10 +96,6 @@ public class FirstUI extends Application {
                 primaryStage.getScene().setRoot(login.getRootPane());
             }
         };
-    }
-  
-    public static void main(String[] args) {
-    		launch(args);
     }
 }
 
