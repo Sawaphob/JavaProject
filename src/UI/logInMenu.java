@@ -3,6 +3,7 @@ package UI;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
@@ -50,6 +51,9 @@ public class logInMenu {
 		hpass.getChildren().addAll(passl,pass,space);
 		root.getChildren().add(hpass);
 		ControlPane control = new ControlPane();
+		Button continueButton = new Button("Continue without Sign in");
+		continueButton.setMinHeight(25);
+		continueButton.setPrefWidth(310);
 		Image image1 = new Image("file:resources/photo/logInPage/2.jpg");
 		ImageView pic1 = new ImageView();
 		pic1.setFitHeight(150);
@@ -57,7 +61,7 @@ public class logInMenu {
 		pic1.setImage(image1);
 		VirtualKeyboard vk = new VirtualKeyboard();
 		vk.root.setAlignment(Pos.BOTTOM_CENTER);
-		root.getChildren().addAll(control,pic1,vk.root);
+		root.getChildren().addAll(control,continueButton,pic1,vk.root);
 		EventManager event = new EventManager();
 		event.setUpSignInButtonEvent(control.getSignInButton(), inputfielduser, pass);
 	}

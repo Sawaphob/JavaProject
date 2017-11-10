@@ -25,6 +25,7 @@ public final class ControlPane extends HBox {
 		signInButton.setPrefWidth(150);
 		signUpButton.setPrefWidth(150);
 		getChildren().addAll(signInButton,signUpButton);
+		signInButton.setDefaultButton(true);
 		// TODO Replace all code in this constructor with your own implementation
 	}
 
