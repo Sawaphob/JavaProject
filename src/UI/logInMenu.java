@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class logInMenu {
 	private final VBox root;
@@ -64,8 +65,15 @@ public class logInMenu {
 		root.getChildren().addAll(control,continueButton,pic1,vk.root);
 		EventManager event = new EventManager();
 		event.setUpSignInButtonEvent(control.getSignInButton(), inputfielduser, pass);
+		event.setUpSignUpButtonEvent(control.getSignUpButton());
 	}
 	public VBox getRootPane() {
 		return root;
+	}
+	public void setStage() {
+		Stage stage = new Stage();
+        Scene scene = new Scene(getRootPane());
+		stage.setScene(scene);
+		stage.show();
 	}
 }

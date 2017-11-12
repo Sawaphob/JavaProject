@@ -8,11 +8,14 @@ import javax.imageio.stream.FileImageInputStream;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public final class EventManager {
 
@@ -25,11 +28,20 @@ public final class EventManager {
 		signInButton.setOnAction(new signInButtonEventHandler(userInput, passInput));
 	}
 
-	public void setUpSignUpButtonEvent(Button cancelButton) {
+	public void setUpSignUpButtonEvent(Button signUpButton) {
 		// This uses an event handler instantiated from an anonymous class. 
-		cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+		signUpButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+				FirstUI first = new FirstUI();
+				signUP signup = new signUP();
+				Stage stage = new Stage();
+			    stage.setTitle("Shop Management");
+			    VBox myPane = signup.getRootPane();
+			    Scene scene = new Scene(myPane);
+			    stage.setScene(scene);
+			    stage.show();
+				
 			}
 		});
 	}

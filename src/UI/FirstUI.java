@@ -29,6 +29,7 @@ public class FirstUI extends Application {
  
 
    // Global ImageView array variable.
+	Stage primaryStage;
     ImageView[] imgView = new ImageView[4]; 
     int imgIndex = 0;
     EventHandler<MouseEvent> circleOnMousePressedEventHandler;
@@ -93,9 +94,13 @@ public class FirstUI extends Application {
         circleOnMousePressedEventHandler = new EventHandler<MouseEvent>() {
             public void handle(MouseEvent t) {
                 logInMenu login = new logInMenu();
-                primaryStage.getScene().setRoot(login.getRootPane());
+                login.setStage();
+                primaryStage.close();
             }
         };
+    }
+    public Stage getStage() {
+		return primaryStage;
     }
 }
 
