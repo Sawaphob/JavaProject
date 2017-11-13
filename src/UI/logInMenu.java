@@ -73,6 +73,7 @@ public class logInMenu {
 	public void setStage() {
 		Stage stage = new Stage();
         Scene scene = new Scene(getRootPane());
+        stage.setFullScreen(true);
 		stage.setScene(scene);
 		stage.show();
 	}

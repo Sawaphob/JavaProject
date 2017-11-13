@@ -36,9 +36,9 @@ public final class EventManager {
 				FirstUI first = new FirstUI();
 				signUP signup = new signUP();
 				Stage stage = new Stage();
-			    stage.setTitle("Shop Management");
+			    stage.setTitle("Sign Up");
 			    VBox myPane = signup.getRootPane();
-			    Scene scene = new Scene(myPane);
+			    Scene scene = new Scene(myPane,400,600);
 			    stage.setScene(scene);
 			    stage.show();
 				
