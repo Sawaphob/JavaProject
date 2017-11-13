@@ -38,7 +38,8 @@ public final class EventManager {
 				Stage stage = new Stage();
 			    stage.setTitle("Sign Up");
 			    VBox myPane = signup.getRootPane();
-			    Scene scene = new Scene(myPane,400,600);
+			    Scene scene = new Scene(myPane);
+			    stage.setFullScreen(true);
 			    stage.setScene(scene);
 			    stage.show();
 				
