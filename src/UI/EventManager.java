@@ -14,6 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -37,7 +38,7 @@ public final class EventManager {
 				signUP signup = new signUP();
 				Stage stage = new Stage();
 			    stage.setTitle("Sign Up");
-			    VBox myPane = signup.getRootPane();
+			    StackPane myPane = signup.getRootPane();
 			    Scene scene = new Scene(myPane);
 			    stage.setFullScreen(true);
 			    stage.setScene(scene);
